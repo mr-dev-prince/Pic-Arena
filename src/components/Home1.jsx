@@ -2,12 +2,22 @@ import React from "react";
 import v1 from "../assets/shapes.png";
 import v2 from "../assets/circle-gradient.png";
 import v3 from "../assets/dog-1.png";
+import { IoSearchCircle } from "react-icons/io5";
 
 const Home1 = () => {
   return (
     <div className=" h-screen max-w-[100vw] bg-gray-900 p-10 relative ">
       <div className="w-sceen h-10 flex justify-between p-2 items-center ">
         <h1 className="font-semibold text-4xl text-white">Pic-Arena.</h1>
+
+        <div className="h-12 w-[25%] rounded-full bg-white flex text-6xl justify-center items-center flex-row">
+          <input
+            type="text"
+            className="h-full w-full p-4 outline-none border-none rounded-full text-lg font-semibold tracking-wider "
+          />
+          <IoSearchCircle />
+        </div>
+
         <main className="h-full">
           <nav>
             <ul className=" list-none flex gap-10 text-slate-300 font-semibold text-xl cursor-pointer">
@@ -16,7 +26,7 @@ const Home1 = () => {
               <li className="hover:text-white">Community</li>
               <li>
                 <button className=" h-full p-2 outline outline-2  duration-300 outline-slate-400 w-40 rounded-full hover:bg-gray-700 hover:text-white text-center ">
-                  Connect Wallet
+                  Sign In
                 </button>
               </li>
             </ul>
@@ -40,7 +50,7 @@ const Home1 = () => {
       />
       <img
         src={v3}
-        alt="SHAPE"
+        alt="Dog"
         className="absolute h-[80%] right-[10%] bottom-3 -rotate-1 animate-wiggle select-none"
       />
       <div className="absolute left-[20%] top-[30%]">
