@@ -26,7 +26,7 @@ const Home2 = () => {
         className="absolute h-1/3 right-[5%] top-[10%] -hue-rotate-30 rotate-12 blur-3xl select-none hidden xl:block"
       />
       {/* Home-2 tally content starts here */}
-      <div className=" w-[90%] flex flex-wrap p-4 justify-center absolute top-0 bg-white/[0.1] backdrop-blur-3xl rounded-[4rem] lg:h-56 lg:w-[75%] lg:px-12 lg:py-16 lg:flex-nowrap lg:justify-between">
+      <div className=" w-[90%] flex flex-wrap p-4 justify-center absolute top-0 bg-white/[0.1] backdrop-blur-3xl rounded-[2rem] lg:rounded-[4rem] lg:h-56 lg:w-[75%] lg:px-12 lg:py-16 lg:flex-nowrap lg:justify-between">
         <div className=" w-full mb-10 flex  justify-evenly gap-5 items-center lg:justify-between lg:w-[60%] lg:mb-0 lg:gap-16">
           <div className="text-white ">
             <p className=" text-xl font-light font-mono">Artwork</p>
