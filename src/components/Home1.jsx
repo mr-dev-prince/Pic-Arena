@@ -56,7 +56,7 @@ const Home1 = () => {
       <img
         src={v3}
         alt="Dog"
-        className="absolute h-[50%] right-[20%] bottom-3 -rotate-1 animate-wiggle select-none lg:h-[80%] lg:right-[10%]"
+        className="absolute h-[50%] right-[10%] bottom-3 -rotate-1 animate-wiggle select-none lg:h-[80%] lg:right-[10%]"
       />
       <div className="absolute left-[20%] top-[15%] lg:top-[30%]">
         <h1 className=" text-white font-bold text-6xl xl:text-7xl">focus.</h1>
