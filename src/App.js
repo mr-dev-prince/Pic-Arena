@@ -15,27 +15,25 @@ import { appwriteContext } from "./context/AppwriteContext";
 import { userContext } from "./context/UserContext";
 
 function App() {
-  const { appwrite, isLoggedIn } = useContext(appwriteContext);
+  const { appwrite, setIsLoggedIn } = useContext(appwriteContext);
   const { setUser } = useContext(userContext);
 
-  console.log(isLoggedIn);
-
   useEffect(() => {
-    if (isLoggedIn) {
-      const getUser = async () => {
-        try {
-          console.log("Fetching user data...");
-          const fetchedUser = await appwrite.getCurrentUser();
-          setUser(fetchedUser);
-          console.log("User fetched:", fetchedUser);
-        } catch (error) {
-          console.log("Error fetching user:", error?.message);
+    const checkSession = async () => {
+      try {
+        const user = await appwrite.getCurrentUser();
+        if (user) {
+          setUser(user);
+          setIsLoggedIn(true);
+          console.log("User fetched:", user);
         }
-      };
+      } catch (error) {
+        console.log("No active session found:", error?.message);
+      }
+    };
 
-      getUser();
-    }
-  }, [isLoggedIn]);
+    checkSession();
+  }, []);
 
   return (
     <Router>

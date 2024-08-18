@@ -1,15 +1,40 @@
-import { Client, Account, ID } from "appwrite";
+import { Client, Account, ID, Databases } from "appwrite";
 
 const appwriteclient = new Client();
 
 class AppwriteServices {
   account;
+  databases;
   constructor() {
     appwriteclient
       .setEndpoint("https://cloud.appwrite.io/v1")
       .setProject("66c18c72001a73a27f77");
 
     this.account = new Account(appwriteclient);
+    this.databases = new Databases(appwriteclient);
+  }
+
+  async createDocument(document) {
+    const databse_id = "art-arena-db";
+    const collection_id = "66c21cd60010a852dfe2";
+    try {
+      const doc = await this.databases.createDocument(
+        databse_id,
+        collection_id,
+        ID.unique(),
+        document
+      );
+
+      return doc;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async fileUpload({ file }) {
+    const storage_id = "";
+    try {
+    } catch (error) {}
   }
 
   async createAccount({ email, password, name }) {

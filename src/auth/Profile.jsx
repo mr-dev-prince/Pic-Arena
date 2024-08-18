@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { HiLogout, HiOutlinePlusCircle } from "react-icons/hi";
 import { FaRegEdit, FaUpload } from "react-icons/fa";
 import sampleImage from "../assets/profile-picture.webp";
@@ -11,6 +11,67 @@ import { useNavigate } from "react-router-dom";
 const Profile = () => {
   const { user } = useContext(userContext);
   const { appwrite, isLoggedIn } = useContext(appwriteContext);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [upload, setUpload] = useState(false);
+  const [description, setDescription] = useState("");
+  const [error, setError] = useState("");
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setSelectedFile(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleUpload = async (e) => {
+    e.preventDefault();
+    if (!selectedFile || !description) {
+      setError("All fields required!");
+      console.log("fields empty!!!");
+      return;
+    }
+
+    try {
+      const uploadFile = await appwrite.storage?.createFile(
+        "66c21e8b0034b1305a87",
+        "unique()",
+        selectedFile
+      );
+
+      const document = await appwrite.database?.createDocument(
+        "66c21cd60010a852dfe2",
+        "unique()",
+        {
+          description,
+          image_id: uploadFile.$id,
+        }
+      );
+
+      console.log("Your Art is uploaded :", document);
+    } catch (error) {
+      console.log("Error uploading file or creating document", error?.message);
+      setError("Failed to upload your art...");
+    }
+  };
+
+  const handleDummyUpload = async (e) => {
+    e.preventDefault();
+
+    const docum = {
+      name: "siri",
+      kaam: "slavery",
+    };
+    try {
+      await appwrite.createDocument(docum);
+      console.log("uploaded---->");
+    } catch (error) {
+      console.log("dummy error---->", error?.message);
+    }
+  };
 
   const navigate = useNavigate();
   console.log(isLoggedIn);
@@ -60,7 +121,10 @@ const Profile = () => {
         </div>
         <div className="flex flex-col gap-10">
           <div className="w-full flex justify-center">
-            <button className="flex items-center gap-2 bg-lime-500 text-gray-800 px-6 py-3 rounded-2xl hover:bg-lime-600 transition duration-300">
+            <button
+              onClick={() => setUpload(!upload)}
+              className="flex items-center gap-2 bg-lime-500 text-gray-800 px-6 py-3 rounded-2xl hover:bg-lime-600 transition duration-300"
+            >
               <HiOutlinePlusCircle size={24} />
               Post Your Work
             </button>
@@ -76,26 +140,42 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      <div className="flex outline w-full mt-8 rounded-2xl h-[400px] p-4 gap-5">
-        <div className="w-[40%] outline h-full rounded-xl flex justify-center items-center">preview</div>
-        <div className="flex flex-col w-[60%] justify-evenly gap-2">
-          <input
-            type="file"
-            placeholder="Title"
-            className="w-full outline rounded-md p-2"
-          />
-          <textarea
-            type="text"
-            placeholder="Title"
-            rows={10}
-            className=" resize-none w-[full] bg-transparent text-white outline outline-2 rounded-xl p-2"
-          />
-          <button className="w-full outline bg-gray-700/50 backdrop-blur-2xl p-1 text-xl rounded-xl hover:bg-green-600 transition-all duration-200 text-center flex justify-center items-center gap-10">
-            <FaUpload />
-            Upload
-          </button>
+      {upload && (
+        <div className="flex outline w-full mt-8 rounded-2xl h-[400px] p-4 gap-5">
+          <div className="w-[40%] outline h-full rounded-xl flex justify-center items-center overflow-hidden">
+            {selectedFile && (
+              <img
+                src={selectedFile}
+                alt="preview"
+                className="h-full w-full object-cover"
+              />
+            )}
+          </div>
+          <div className="flex flex-col w-[60%] justify-evenly gap-2">
+            <input
+              type="file"
+              placeholder="Upload image..."
+              accept="image/*"
+              onChange={handleFileChange}
+              className="w-full outline rounded-md p-2"
+            />
+            <textarea
+              type="text"
+              placeholder="Description"
+              onChange={(e) => setDescription(e.target.value)}
+              rows={10}
+              className=" resize-none w-[full] bg-transparent text-white outline outline-2 rounded-xl p-2"
+            />
+            <button
+              onClick={handleDummyUpload}
+              className="w-full outline bg-gray-700/50 backdrop-blur-2xl p-1 text-xl rounded-xl hover:bg-green-600 transition-all duration-200 text-center flex justify-center items-center gap-10"
+            >
+              <FaUpload />
+              Upload
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

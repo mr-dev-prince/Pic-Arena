@@ -15,7 +15,7 @@ export const AppwriteProvider = ({ children }) => {
     isLoggedIn,
     setIsLoggedIn,
   };
-  
+
   return (
     <appwriteContext.Provider value={defaultValue}>
       {children}
