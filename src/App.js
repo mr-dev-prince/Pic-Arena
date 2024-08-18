@@ -1,20 +1,29 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
-import Home2 from "./components/Home2";
-import Home1 from "./components/Home1";
-import Home3 from "./components/Home3";
-import Home4 from "./components/Home4";
+import Header from "./UI/Header";
+import Footer from "./UI/Footer";
+import Home from "./components/Home";
+import Community from "./components/Community";
+import MarketPlace from "./components/MarketPlace";
+import Collections from "./components/Collections";
+import Login from "./auth/Login";
+import Register from "./auth/Register";
 
 function App() {
   return (
-    <>
-      <div className="App">
-        <Home1 />
-        <Home2 />
-        <Home3 />
-        <Home4 />
-      </div>
-    </>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/community" element={<Community />} />
+        <Route path="/marketplace" element={<MarketPlace />} />
+        <Route path="/collections" element={<Collections />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 

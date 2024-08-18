@@ -4,7 +4,7 @@ import { BsDiscord, BsTwitter, BsTelegram } from "react-icons/bs";
 
 const Footer = () => {
   return (
-    <div className="h-[35%] w-full bg-white/10 backdrop-blur-2xl p-8 rounded-3xl flex justify-between">
+    <div className="h-fit w-full bg-gray-900 backdrop-blur-2xl px-32 flex justify-between pt-12 pb-8">
       <div className="h-full w-[90%] lg:w-[20%]">
         <h1 className="text-white font-bold text-3xl mb-5 ">Pic-Arena</h1>
         <p className=" text-white mb-5 tracking-wide">

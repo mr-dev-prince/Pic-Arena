@@ -1,11 +1,10 @@
 import React from "react";
 import v8 from "../assets/circle-gradient-2.png";
 import v9 from "../assets/circle-gradient.png";
-import Footer from "./Footer";
 
-const Home4 = () => {
+const CallToActionSection = () => {
   return (
-    <div className=" h-screen max-w-full bg-gray-900 p-10 relative ">
+    <div className=" h-fit max-w-full bg-gray-900 relative">
       <img
         src={v8}
         alt=""
@@ -17,9 +16,9 @@ const Home4 = () => {
         className="h-[20%] hue-rotate-360 absolute bottom-[18%] left-[3%] blur-2xl hidden lg:block "
       />
       <img
-        src={v9} 
+        src={v9}
         alt=""
-        className="h-[30%] hue-rotate-120 absolute bottom-[20%] right-[40%] blur-3xl hidden lg:block"
+        className="h-[30%] hue-rotate-120 absolute bottom-[30%] right-[40%] blur-3xl hidden lg:block"
       />
       <div className="h-[60%] w-[80%] lg:w-[60%] flex flex-col p-5 lg:10 relative ">
         <h1 className="text-white text-4xl lg:text-7xl font-bold tracking-wider mb-8 lg:mb-16">
@@ -29,9 +28,8 @@ const Home4 = () => {
           Subscribe
         </button>
       </div>
-      <Footer />
     </div>
   );
 };
 
-export default Home4;
+export default CallToActionSection;

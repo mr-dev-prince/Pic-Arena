@@ -11,10 +11,9 @@ import l3 from "../assets/binance.svg";
 import l4 from "../assets/spectacles.svg";
 import l5 from "../assets/meta.svg";
 
-const Home3 = () => {
+const ArtistSection = () => {
   return (
-    <div className="h-screen max-w-[100vw] bg-gray-900 lg:p-10 relative flex justify-center ">
-      {/*gradients-added*/}
+    <div className=" h-[50vh] w-full bg-gray-900 flex flex-col justify-center mt-24 mb-32 relative ">
       <img
         src={v8}
         alt=""
@@ -23,20 +22,20 @@ const Home3 = () => {
       <img
         src={v9}
         alt=""
-        className="h-[30%] hue-rotate-90 absolute bottom-[18%] left-[3%] blur-3xl hidden lg:block"
+        className="h-[40%] hue-rotate-90 absolute bottom-[18%] left-[3%] blur-3xl hidden lg:block"
       />
-      {/*the main div*/}
-      <div className="h-[80%] lg:h-[50%] w-[80%] absolute top-[5%] lg:top-[20%] flex flex-row">
-        <div className="h-full w-[30%] p-4 mr-5 hidden lg:block">
-          <p className="text-md text-lime-500 mb-5  ">Artist</p>
-          <h1 className="text-white text-8xl mb-5 ">Top List Artist.</h1>
-          <p className="text-yellow-500 tracking-wider text-justify ">
-            we have dozens of artists who contribute to create amazing work.
+      <div className="h-full w-full  flex flex-row">
+        <div className="h-full w-[40%] p-4 mr-5 hidden lg:block">
+          <p className="text-md text-lime-500 mb-5">Artist</p>
+          <h1 className="text-white text-8xl font-bold mb-5 ">
+            Top List Artists.
+          </h1>
+          <p className="text-yellow-500 tracking-wide text-justify text-xl ">
+            We have dozens of artists who contribute to create amazing work.
           </p>
         </div>
-        <div className="h-full w-full lg:w-[70%] flex flex-wrap lg:flex-nowrap justify-evenly gap-20">
-          {/* neeraj sharma */}
-          <div className=" h-64 lg:h-full w-full lg:w-[90%] flex justify-center items-end rounded-3xl bg-gray-500/[0.1] backdrop-blur-xl relative">
+        <div className="w-[60%] h-full flex flex-row gap-10">
+          <div className="w-[50%] h-full flex justify-center items-end rounded-3xl bg-gray-500/[0.1] backdrop-blur-xl relative">
             <div className=" h-16 lg:h-28 w-16 lg:w-28 rounded-full absolute top-[5%] lg:top[-14%]  flex  overflow-hidden  justify-center items-center bg-lime-400/20 backdrop-blur-xl ">
               <img src={v13} alt="" className="w-26 bg-no-repeat bg-contain " />
             </div>
@@ -52,8 +51,7 @@ const Home3 = () => {
               <img src={v10} alt="" />
             </div>
           </div>
-          {/* megan stanley */}
-          <div className="h-64 lg:h-full w-full lg:w-[90%] flex justify-center items-end rounded-3xl bg-gray-500/[0.1] backdrop-blur-xl relative  ">
+          <div className="w-[50%] h-full flex justify-center items-end rounded-3xl bg-gray-500/[0.1] backdrop-blur-xl relative  ">
             <div className="h-16 lg:h-28 w-16 lg:w-28 rounded-full absolute top-[5%] lg:top[-14%]  flex  overflow-hidden  justify-center items-center bg-lime-400/20 backdrop-blur-xl">
               <img src={v12} alt="" className="w-26 bg-no-repeat bg-contain " />
             </div>
@@ -71,9 +69,7 @@ const Home3 = () => {
           </div>
         </div>
       </div>
-      {/*the main div end*/}
-      {/*Footer div*/}
-      <div className="w-full h-[16%] absolute bottom-7 lg:bottom-5 p-5 flex flex-wrap lg:flex-nowrap justify-evenly items-center flex-row">
+      <div className="w-full h-[16%] p-5 flex flex-row mt-12 justify-evenly items-center rounded-full bg-slate-600/30 backdrop-blur-3xl ">
         <div>
           <img src={l2} alt="" className="h-20 lg:24 invert-[100]" />
         </div>
@@ -90,9 +86,8 @@ const Home3 = () => {
           <img src={l5} alt="" className="h-20 lg:24 invert-[100]" />
         </div>
       </div>
-      {/*Footer div end*/}
     </div>
   );
 };
 
-export default Home3;
+export default ArtistSection;
