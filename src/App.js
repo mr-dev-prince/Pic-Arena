@@ -9,8 +9,34 @@ import Creators from "./components/Creators";
 import Collections from "./components/Collections";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
+import Profile from "./auth/Profile";
+import { useContext, useEffect } from "react";
+import { appwriteContext } from "./context/AppwriteContext";
+import { userContext } from "./context/UserContext";
 
 function App() {
+  const { appwrite, isLoggedIn } = useContext(appwriteContext);
+  const { setUser } = useContext(userContext);
+
+  console.log(isLoggedIn);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      const getUser = async () => {
+        try {
+          console.log("Fetching user data...");
+          const fetchedUser = await appwrite.getCurrentUser();
+          setUser(fetchedUser);
+          console.log("User fetched:", fetchedUser);
+        } catch (error) {
+          console.log("Error fetching user:", error?.message);
+        }
+      };
+
+      getUser();
+    }
+  }, [isLoggedIn]);
+
   return (
     <Router>
       <Header />
@@ -21,6 +47,7 @@ function App() {
         <Route path="/collections" element={<Collections />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       <Footer />
     </Router>

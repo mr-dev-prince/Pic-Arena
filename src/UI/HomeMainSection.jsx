@@ -18,11 +18,17 @@ const HomeMainSection = () => {
         alt="gradient"
         className="h-[30%] hue-rotate-90 absolute bottom-[18%] left-0 blur-3xl hidden lg:block"
       />
-      <div className="h-screen w-full flex justify-between items-center mb-24">
+      <img
+        src={gradient2}
+        alt="gradient"
+        className="h-[20%] hue-rotate-270 absolute bottom-[18%] right-0 blur-3xl hidden lg:block"
+      />
+      <div className="h-[90vh] w-full flex justify-between items-center mb-24">
         <div className="w-[50%] h-full flex flex-col justify-center items-center space-y-3">
           <p className="font-black text-6xl text-white ">Imagine.</p>
           <p className="font-black text-8xl text-red-700">Create.</p>
           <p className="font-black text-9xl text-sky-700 z-10">Share.</p>
+          <p className="text-xl font-semibold text-white tracking-widest">A budding platform for all the artists.</p>
         </div>
         <div className=" h-full w-[50%]">
           <div className="w-full h-full flex justify-center items-center">

@@ -3,7 +3,7 @@ import { HiOutlineChatAlt2 } from "react-icons/hi";
 
 const CommunityMemberCard = ({ name, location, image, description }) => {
   return (
-    <div className="w-[300px] lg:w-[400px] p-6 bg-gray-800/60 backdrop-blur-xl rounded-2xl flex flex-col items-center text-center space-y-4">
+    <div className="w-[200px] lg:w-[400px] p-6 bg-gray-800/60 backdrop-blur-xl rounded-2xl flex flex-col items-center text-center space-y-4">
       <img
         src={image}
         alt={name}
