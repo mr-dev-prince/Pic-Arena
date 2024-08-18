@@ -5,13 +5,13 @@ import "swiper/css/pagination";
 import "./style.css";
 import { Autoplay, Pagination } from "swiper/modules";
 
-import img1 from "./swiper_assets/swiper1.jpg";
-import img2 from "./swiper_assets/swiper2.jpg";
-import img3 from "./swiper_assets/swiper3.jpg";
-import img4 from "./swiper_assets/swiper4.jpg";
-import img5 from "./swiper_assets/swiper5.jpg";
-import img6 from "./swiper_assets/swiper6.jpg";
-import img7 from "./swiper_assets/swiper7.jpg";
+import img1 from "./swiper_assets/art1.webp";
+import img2 from "./swiper_assets/art2.webp";
+import img3 from "./swiper_assets/art3.webp";
+import img4 from "./swiper_assets/art4.jpeg";
+import img5 from "./swiper_assets/art5.webp";
+import img6 from "./swiper_assets/art6.webp";
+import img7 from "./swiper_assets/art3.webp";
 
 const Carousel = () => {
   return (

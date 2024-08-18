@@ -5,7 +5,7 @@ import Header from "./UI/Header";
 import Footer from "./UI/Footer";
 import Home from "./components/Home";
 import Community from "./components/Community";
-import MarketPlace from "./components/MarketPlace";
+import Creators from "./components/Creators";
 import Collections from "./components/Collections";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/community" element={<Community />} />
-        <Route path="/marketplace" element={<MarketPlace />} />
+        <Route path="/creators" element={<Creators />} />
         <Route path="/collections" element={<Collections />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

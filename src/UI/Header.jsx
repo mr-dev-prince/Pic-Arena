@@ -11,9 +11,9 @@ const Home1 = () => {
       </Link>
       <div className="space-x-24 font-semibold">
         <Link to={"/collections"}>Collections</Link>
-        <Link to={"/marketplace"}>Marketplace</Link>
+        <Link to={"/creators"}>Creators</Link>
         <Link to={"/community"}>Community</Link>
-        <Link to={"/login"}>Login </Link>
+        <Link to={"/login"}>Login</Link>
       </div>
     </div>
   );

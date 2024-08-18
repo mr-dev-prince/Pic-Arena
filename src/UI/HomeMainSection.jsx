@@ -3,10 +3,11 @@ import gradient from "../assets/circle-gradient-2.png";
 import gradient2 from "../assets/circle-gradient.png";
 import splash from "../assets/splash.png";
 import Carousel from "./swiper/Carousel";
+import TallyComponent from "./TallyComponent";
 
 const HomeMainSection = () => {
   return (
-    <div className="h-[90vh] w-full relative flex justify-center items-center">
+    <div className="h-fit w-full relative flex flex-col justify-center items-center">
       <img
         src={gradient}
         alt="gradient"
@@ -17,7 +18,7 @@ const HomeMainSection = () => {
         alt="gradient"
         className="h-[30%] hue-rotate-90 absolute bottom-[18%] left-0 blur-3xl hidden lg:block"
       />
-      <div className="h-full w-full flex justify-between items-center">
+      <div className="h-screen w-full flex justify-between items-center mb-24">
         <div className="w-[50%] h-full flex flex-col justify-center items-center space-y-3">
           <p className="font-black text-6xl text-white ">Imagine.</p>
           <p className="font-black text-8xl text-red-700">Create.</p>
@@ -29,6 +30,7 @@ const HomeMainSection = () => {
           </div>
         </div>
       </div>
+      <TallyComponent />
       <img
         src={splash}
         alt="v1"
